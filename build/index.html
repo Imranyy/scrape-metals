@@ -10,23 +10,23 @@
 </head>
 <body>
     <nav class="cyran lighten-2" role="navigation">
-        <a id="logo-container" href="#" class="brand-logo text-darken-5 customfont center customfont">AddMeUp Org</a>
+        <a id="logo-container" href="#" class="brand-logo text-darken-5 customfont center  hide-on-med-and-down">AddMeUp Org</a>
         <div class="nav-wrapper container">
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#" class="light modal-trigger"  data-target="amount-modal">Amount Balance</a></li>
-                <li><a href="#" class="light modal-trigger" data-target="user-modal" >username</a></li>
+          <ul class="left">
+          <li class="log-in" style="display: none;"><a href="#" class="light modal-trigger"  data-target="amount-modal">Amount Balance</a></li>
+          </ul>
+            <ul class="right">
+                <li class="log-in" style="display: none;">
+                  <a class="modal-trigger light" data-target="user-modal" id="name"></a></li>
+                <li  style="display: none;" class="log-out"><a href="#" class="light" id="signin" >Sign in</a></li>
             </ul>
-            <ul id="nav-mobile" class="sidenav">
-                <li><a href="#" class="light modal-trigger" data-target="amount-modal">Amount Balance</a></li>
-                <li><a href="#" class=" light modal-trigger" data-target="user-modal">username</a></li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
-        </div>
+           
+            </div>
     </nav>
     <!--usermodal-->
     <div id="user-modal" class="modal">
         <div class="modal-content center-align">
-          <h4>User details:</h4><br />
+          <h4>Dashboard:</h4><br />
           <div class="account-details"></div>
         </div>
       </div>
@@ -116,25 +116,29 @@
         <div class="card">
             <div class="card-title" style="margin-left: 8%;"><h4 class="light customfont">AddMeUp. org</h4></div>
             <div class="card-content">
-                <form id="answer-form">
-                    <div class="input-field">
-                      <input type="text" id="site" name="site" required />
-                      <label for="site">Enter the Site</label>
+              <form id="one" >
+                    <div class="input-field" >
+                      <select id="site">
+                        <option value="" disabled selected>Choose your site</option>
+                        <option type="text" value="instagram" name="instagram" id="instagram">Instagram</option>
+                        <option type="text" value="twitter" name="twitter" id="twitter">Twitter</option>
+                        <option type="text" value="facebook" name="facebook" id="facebook">Facebook</option>
+                      </select>
+                      <label>Site</label>
                       </div>
+                        <div class="input-field" >
+                          <input type="text" id="username" name="username"  />
+                          <label for="username">Enter Username</label>
+                         </div>
                       <div class="input-field">
-                      <input type="text" id="choice" name="choice" required />
-                      <label for="choice">Enter Your choice</label>
-                      </div>
-                      <div class="input-field">
-                      <input type="number" id="amount" name="amount" required />
+                      <input type="number" id="amount" name="amount" />
                       <label for="amount">Amount</label>
                      </div>
                      <div class="input-field">
-                     <input type="number" id="price" name="price" required />
+                     <input type="number" id="price" value="233" name="price" disabled />
                      <label for="price">Price</label>
                     </div>
-                    <button class="btn red lighten-1 z-depth-0">Done</button>
-                    <p class="error"></p>
+                    <button id="sub" class="btn red lighten-1 z-depth-0">Done</button>
                   </form>
             </div>
         </div>
@@ -149,7 +153,7 @@
           <div class="icon-block">
             <h3 class="center">Stats <i class="material-icons">topic</i></h3>
                 <div class="card">
-                  <div class="card-title right" style="margin-right: 1%; margin-top:1%;"><a class="btn-floating waves-effect waves-light red modal-trigger" data-target="modal-stats"><i class="material-icons">add</i></a></div>
+                  <div class="card-title right" style="margin-right: 1%; margin-top:1%;"><a class="btn-floating waves-effect waves-light red modal-trigger  log-in" data-target="modal-stats" style="display: none;"><i class="material-icons">add</i></a></div>
                   <div class="card-content">
                     <p class="light"> Likes: 134243243423</p>
                     <p class="light">Followers: 12556</p>
@@ -164,7 +168,7 @@
           <div class="icon-block">
             <h3 class="center">Reviews <i class="material-icons">hive</i></h3>
             <div class="card">
-              <div class="card-title right" style="margin-right: 1%; margin-top:1%;"><a class="btn-floating waves-effect waves-light red modal-trigger" data-target="modal-review"><i class="material-icons">add</i></a></div>
+              <div class="card-title right" style="margin-right: 1%; margin-top:1%;"><a class="btn-floating waves-effect waves-light red modal-trigger  log-in" style="display: none;" data-target="modal-review" ><i class="material-icons">add</i></a></div>
               <div class="card-content">
                 <p class="light"> Joel: <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></p>
                 <p class="light">Daniel: <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></p>
@@ -178,7 +182,7 @@
         <div class="col s12 m4">
           <div class="icon-block">
             <h3 class="center">History</h3><div class="card">
-              <div class="card-title right" style="margin-right: 1%; margin-top:1%;"><a class="btn-floating waves-effect waves-light red modal-trigger" data-target="modal-history"><i class="material-icons">add</i></a></div>
+              <div class="card-title right" style="margin-right: 1%; margin-top:1%;"><a class="btn-floating waves-effect waves-light red modal-trigger  log-in" style="display: none;"  data-target="modal-history"><i class="material-icons">add</i></a></div>
               <div class="card-content">
                 <p class="light"> User 601: 10K 2sec</p>
                 <p class="light">User 602: 5k 3sec</p>
@@ -205,10 +209,10 @@
         <div class="col l3 s12">
           <h5 class="white-text">Social Media</h5>
           <ul>
-            <li><a class="black-text" href="#!">Facebook <i class="material-icons">camera</i></a></li>
-            <li><a class="cyran-text" href="#!">Discord <i class="material-icons white-text">incomplete_circle</i></a></li>
-            <li><a class="black-text " href="#!">Twitter <i class="material-icons">mark_as_unread</i></a></li>
-            <li><a class="green-text" href="#!">Whatsapp <i class="material-icons green-text">Whatsapp</i></a></li>
+            <li id="facebook"><a class="black-text" href="https://Instagram.com/">Facebook <i class="material-icons">camera</i></a></li>
+            <li id="discord"><a class="cyran-text" href="https://discord.com/">Discord <i class="material-icons white-text">incomplete_circle</i></a></li>
+            <li id="twitter"><a class="black-text " href="https://twitter.com/">Twitter <i class="material-icons">mark_as_unread</i></a></li>
+            <li id="Whatsapp"><a class="green-text" href="https://wa.me/">Whatsapp <i class="material-icons green-text">Whatsapp</i></a></li>
           </ul>
         </div>
       </div>
@@ -218,8 +222,8 @@
       <div class="container"></div>
     </div>
   </footer>
-
-  <script src="./js/init.js"></script>  
+  <script src="./js/FirebaseConfig.js" type="module"></script>
+  <script src="./js/init.js" type="module"></script>  
   <script src="./js/materialize.min.js"></script>
 </body>
 </html>
