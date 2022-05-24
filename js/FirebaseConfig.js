@@ -6,12 +6,13 @@ import{getFirestore,collection,addDoc} from "https://www.gstatic.com/firebasejs/
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAk_mBGAyX_iEcBJiWiGg3bfSCIJ2_ydUc",
-  authDomain: "fir-site-bb2a5.firebaseapp.com",
-  projectId: "fir-site-bb2a5",
-  storageBucket: "fir-site-bb2a5.appspot.com",
-  messagingSenderId: "869027154677",
-  appId: "1:869027154677:web:1b0cbb66015c543b5053bc"
+  apiKey: "AIzaSyBX6PYMq3fBiuQ6Zz3wpsmuIypAyZj2krY",
+  authDomain: "scrape-metals.firebaseapp.com",
+  projectId: "scrape-metals",
+  storageBucket: "scrape-metals.appspot.com",
+  messagingSenderId: "728042346596",
+  appId: "1:728042346596:web:1a68572877e24ef188a771",
+  measurementId: "G-5N74VJDP9X"
 };
 
 // Initialize Firebase
