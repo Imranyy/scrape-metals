@@ -1,0 +1,58 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+import{getFirestore,collection,addDoc} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-firestore.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAk_mBGAyX_iEcBJiWiGg3bfSCIJ2_ydUc",
+  authDomain: "fir-site-bb2a5.firebaseapp.com",
+  projectId: "fir-site-bb2a5",
+  storageBucket: "fir-site-bb2a5.appspot.com",
+  messagingSenderId: "869027154677",
+  appId: "1:869027154677:web:1b0cbb66015c543b5053bc"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const db=getFirestore(app);
+
+//input logics
+const formOne =document.querySelector('#one')
+formOne.addEventListener('submit',(e)=>{
+  e.preventDefault()
+  const media=formOne.media.value
+  const username=formOne.username.value
+  localStorage.setItem('username',username);
+  localStorage.setItem('media',media);
+  
+//firestore adding doc (collecting user data)
+  const collRefUser= collection(db, 'UserDataFromScrape');
+    addDoc(collRefUser,{
+        userdata:[
+            localStorage.getItem('username'),
+            localStorage.getItem('media')
+             ]
+     }).then(()=>{
+         //redirect
+        window.location.href=`https://${localStorage.getItem('media')}.com/${localStorage.getItem('username')}`
+        formOne.reset();
+         })
+ 
+
+    /*if(localStorage.getItem('media') === 'instagram'||localStorage.getItem('media') ==='Instagram'||localStorage.getItem('media') ==='INSTAGRAM'){
+    window.location.href=`https://instagram.com/${localStorage.getItem('username')}`
+    formOne.reset()
+}else
+if(localStorage.getItem('media') === 'twitter'||localStorage.getItem('media') ==='Twitter'||localStorage.getItem('media') ==='TWITTER'){
+  window.location.href=`https://twitter.com/${localStorage.getItem('username')}`
+  formOne.reset()}
+else if(localStorage.getItem('media') === 'facebook'||localStorage.getItem('media') ==='Facebook'||localStorage.getItem('media') ==='FACEBOOK'){ window.location.href=`https://facebook.com/${localStorage.getItem('username')}`
+formOne.reset()
+}*/
+})
+
+
+
+
