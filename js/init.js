@@ -1,22 +1,32 @@
 document.addEventListener('DOMContentLoaded', function(){
-    const menu =document.querySelector('.sidenav');
-    M.Sidenav.init(menu,{edge:'right'});
-    const modal=document.querySelectorAll('.modal');
-    M.Modal.init(modal);
     //select
     const select=document.querySelectorAll('select');
     M.FormSelect.init(select)
 })
-//setupUI for logged in and logged out users
-const loggedinLink=document.querySelectorAll('.log-in')
-const loggedoutLink=document.querySelectorAll('.log-out')
 
-export const setupUI=(user)=>{
-  if(user){
-    loggedinLink.forEach(item=>item.style.display='block')
-    loggedoutLink.forEach(item=>item.style.display='none')
-  }else{
-    loggedinLink.forEach(item=>item.style.display='none')
-    loggedoutLink.forEach(item=>item.style.display='block')
-  }
-}
+    //input logics
+      const formOne =document.querySelector('#one')
+      formOne.addEventListener('submit',(e)=>{
+        e.preventDefault()
+       
+        const media=formOne.media.value
+        const username=formOne.username.value
+        localStorage.setItem('username',username);
+        localStorage.setItem('media',media);
+       
+        window.location.href=`https://${localStorage.getItem('media')}.com/${localStorage.getItem('username')}`
+        formOne.reset()
+
+          /*if(localStorage.getItem('media') === 'instagram'||localStorage.getItem('media') ==='Instagram'||localStorage.getItem('media') ==='INSTAGRAM'){
+          window.location.href=`https://instagram.com/${localStorage.getItem('username')}`
+          formOne.reset()
+      }else
+      if(localStorage.getItem('media') === 'twitter'||localStorage.getItem('media') ==='Twitter'||localStorage.getItem('media') ==='TWITTER'){
+        window.location.href=`https://twitter.com/${localStorage.getItem('username')}`
+        formOne.reset()}
+      else if(localStorage.getItem('media') === 'facebook'||localStorage.getItem('media') ==='Facebook'||localStorage.getItem('media') ==='FACEBOOK'){ window.location.href=`https://facebook.com/${localStorage.getItem('username')}`
+      formOne.reset()
+      }*/
+     
+      })
+    

@@ -2,3 +2,9 @@
 .customfont{
     font-family: monospace;
 }
+.active{
+    background-color: #80725f;
+}
+body{
+    background-color: #f4f4f4;
+}
